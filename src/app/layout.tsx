@@ -27,7 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}>
         <div className="flex flex-col">
-          <header className="flex gap-6 flex-wrap justify-end pt-6 pr-6 sticky top-0">
+          <header className="flex gap-6 flex-wrap justify-end pt-6 pr-6 sticky top-0 bg-black pb-6">
             <Link href="/">Main Page</Link>
             <a href="/newsletter">News Letter</a>
             <a href="/leaderboard">Leaderboards</a>

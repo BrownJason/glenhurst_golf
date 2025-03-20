@@ -29,6 +29,7 @@ export type SkinSheet = {
   hole18: number;
   in: number;
   adj: number;
+  week: string;
 };
 
 export const columns: ColumnDef<SkinSheet>[] = [
