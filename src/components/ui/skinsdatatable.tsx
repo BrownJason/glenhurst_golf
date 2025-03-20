@@ -35,13 +35,11 @@ export function SkinsDataTable<TData, TValue>({ columns, data, weeks }: SkinsDat
   return (
     <div className="flex flex-col m-4">
       <div className="flex justify-center text-center w-full">Skin Sheet</div>
-      <div className="flex py-4 w-full">
-        <div className="flex justify-start items-center py-4 md:w-128">
-          Filter by name: &nbsp; <Input placeholder="Filter names..." value={(table.getColumn("name")?.getFilterValue() as string) ?? ""} onChange={(event) => table.getColumn("name")?.setFilterValue(event.target.value)} className="max-w-sm" />
-        </div>
-        <div className="justify-end py-4 flex-1">
-          <WeekSelection week={weeks} />
-        </div>
+      <div className="flex justify-start items-center py-4 md:w-128">
+        Filter by name: &nbsp; <Input placeholder="Filter names..." value={(table.getColumn("name")?.getFilterValue() as string) ?? ""} onChange={(event) => table.getColumn("name")?.setFilterValue(event.target.value)} className="max-w-sm" />
+      </div>
+      <div className="flex justify-start items-center py-4 md:w-128">
+        <WeekSelection week={weeks} />
       </div>
       <div className="rounded-md border">
         <Table>
