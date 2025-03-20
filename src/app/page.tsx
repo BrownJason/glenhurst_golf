@@ -19,22 +19,20 @@ export default function Home() {
           <div className="flex flex-col justify-center items-center w-full">
             <Image src="/Golf-PNG-File.png" alt="Next.js logo" width={180} height={58} priority />
           </div>
-          <div className="flex flex-col justify-center items-center bg-[#6c844c] text-[#f9e6bf] border-[#f9e6bf] border rounded-xl p-4">
-            <p>
-              For weekly updates on your winnings and YTD earnings <br />
-              head on over to{" "}
+          <div className="flex flex-col justify-center items-center md:w-128 bg-[#6c844c] text-[#f9e6bf] border-[#f9e6bf] border rounded-xl p-4">
+            <p className="text-pretty">
+              For weekly updates on your winnings and YTD earnings head on over to{" "}
               <Link href="/" className="text-xl hover:text-[#9caca7]">
                 Daily/Weekly Scores
               </Link>
             </p>
             <br />
-            <p>
+            <p className="text-pretty">
               Check out the{" "}
               <Link href={"/skinsheet?week=" + getNextSaturday()} className="text-xl hover:text-[#9caca7]">
                 Skin Sheet
               </Link>{" "}
-              for updates on Weekly Skins. <br />
-              See if you won before the next round of golf
+              for updates on weekly skins. See if you won before the next round of golf
             </p>
           </div>
         </main>
