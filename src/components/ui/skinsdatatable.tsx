@@ -31,22 +31,28 @@ export function SkinsDataTable<TData, TValue>({ columns, data, weeks }: SkinsDat
   });
 
   return (
-    <div className="flex flex-col m-4">
-      <div className="flex justify-center text-center w-full">Skin Sheet</div>
-      <div className="flex justify-start items-center py-4 md:w-128">
-        Filter by name: &nbsp; <Input placeholder="Filter names..." value={(table.getColumn("name")?.getFilterValue() as string) ?? ""} onChange={(event) => table.getColumn("name")?.setFilterValue(event.target.value)} className="max-w-sm" />
+    <div className="flex flex-col m-4 rounded-lg">
+      <div className="flex rounded-lg justify-center text-center text-4xl py-4">
+        <div className="flex justify-center text-center items-center w-128 bg-[#6c844c] text-[#f9e6bf] border-[#f9e6bf] border rounded-xl py-2">Skin Sheet</div>
       </div>
-      <div className="flex justify-start items-center py-4 md:w-128">
-        <WeekSelection week={weeks} />
+      <div className="flex rounded-lg justify-center text-center py-4">
+        <div className="flex justify-center items-center w-128 bg-[#6c844c] text-[#f9e6bf] border-[#f9e6bf] border rounded-xl py-2">
+          Filter by name: &nbsp; <Input placeholder="Filter names..." value={(table.getColumn("name")?.getFilterValue() as string) ?? ""} onChange={(event) => table.getColumn("name")?.setFilterValue(event.target.value)} className="max-w-sm" />
+        </div>
       </div>
-      <div className="rounded-md border">
+      <div className="flex rounded-lg justify-center text-center py-4 border-[#f9e6bf]">
+        <div className="flex justify-center items-center py-4 w-128 bg-[#6c844c] border-[#f9e6bf] border">
+          <WeekSelection week={weeks} />
+        </div>
+      </div>
+      <div className="rounded-xl border text-[#f9e6bf] bg-[#6c844c] border-[#f9e6bf]">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id} className={clsx(header.id === "name" ? "text-center sticky left-15 bg-gray-600 border border-black" : !header.id.includes("hole") && !header.id.includes("in") && !header.id.includes("out") && !header.id.includes("adj") ? "text-center sticky left-0 bg-gray-600 border border-black" : "text-center bg-gray-600 border border-black")}>
+                    <TableHead key={header.id} className={clsx(header.id === "name" ? "text-center sticky left-15 bg-[#6c844c] border border-[#f9e6bf]" : !header.id.includes("hole") && !header.id.includes("in") && !header.id.includes("out") && !header.id.includes("adj") ? "text-center sticky left-0 bg-[#6c844c] border border-[#f9e6bf]" : "text-center bg-[#6c844c]border border-[#f9e6bf]")}>
                       {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                     </TableHead>
                   );
@@ -59,7 +65,7 @@ export function SkinsDataTable<TData, TValue>({ columns, data, weeks }: SkinsDat
               table.getRowModel().rows.map((row) => (
                 <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} className={clsx(cell.id.includes("name") ? "text-center sticky left-15 bg-gray-600 border border-black" : !cell.id.includes("hole") && !cell.id.includes("in") && !cell.id.includes("out") && !cell.id.includes("adj") ? "text-center sticky left-0 bg-gray-600 border border-black" : "text-center bg-gray-600 border border-black")}>
+                    <TableCell key={cell.id} className={clsx(cell.id.includes("name") ? "text-center sticky left-15 bg-[#6c844c] border border-[#f9e6bf]" : !cell.id.includes("hole") && !cell.id.includes("in") && !cell.id.includes("out") && !cell.id.includes("adj") ? "text-center sticky left-0 bg-[#6c844c] border border-[#f9e6bf]" : "text-center bg-[#6c844c] border border-[#f9e6bf]")}>
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </TableCell>
                   ))}

@@ -27,14 +27,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}>
-        <div className="flex flex-col">
-          <header className="flex gap-6 flex-wrap justify-end pt-6 pr-6 sticky top-0 bg-black pb-6">
+        <div className="flex flex-col  min-h-dvh">
+          <header className="flex gap-6 flex-wrap justify-end pt-6 pr-6 fixed sticky top-0 bg-[#6c844c] text-[#f9e6bf] pb-6 z-1000">
             <Link href="/">Main Page</Link>
-            <a href="/newsletter">News Letter</a>
             <a href="/skinsheet">Skin Sheet</a>
           </header>
-          <div className="dark">{children}</div>
+          <div className="flex-grow dark my--10 bg-[url(/golf-course-1.png)] bg-scroll bg-cover">{children}</div>
           <Analytics />
+          <footer className="row-start-3 fixed flex gap-6 flex-wrap items-center justify-center sticky bottom-0 py-8 bg-[#6c844c] text-[#f9e6bf]">
+            <Link href="/">&copy; 2025 GlenHurst - Change Later</Link>
+          </footer>
         </div>
       </body>
     </html>

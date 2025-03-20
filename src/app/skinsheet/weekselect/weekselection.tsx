@@ -20,13 +20,13 @@ export default function WeekSelection(props: { week: any[] }) {
   }
 
   return (
-    <div className="flex justify-end">
-      <div className="flex text-center items-center pr-4">Week of </div>
+    <div className="flex justify-end rounded-lg bg-none text-[#f9e6bf]">
+      <div className="flex text-center items-center pr-4 pl-4">Week of </div>
       <Select onValueChange={(e) => handleOnChange(e)}>
-        <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder={searchParams.get("week")?.toString()} defaultValue={searchParams.get("week")?.toString()} />
+        <SelectTrigger className="w-[180px] border-[#f9e6bf] bg-[#9caca7] ">
+          <SelectValue placeholder={searchParams.get("week")?.toString()} defaultValue={searchParams.get("week")?.toString()} className="border-[#f9e6bf bg-[#5f5933]" />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className="bg-[#9caca7] border-[#f9e6bf] text-[#f9e6bf]">
           {data.map((weeks) => {
             return (
               <SelectItem value={weeks} key={weeks}>

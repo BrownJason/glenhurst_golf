@@ -18,7 +18,7 @@ export default async function Leaderboard(props: {
   const distinctWeeks = await fetchWeeks();
 
   return (
-    <div className="container mx-auto py-10">
+    <div className="mx-auto py-10 items-center">
       <SkinsDataTable columns={columns} data={data} weeks={distinctWeeks} />
     </div>
   );
