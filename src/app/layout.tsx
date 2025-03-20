@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,9 +31,10 @@ export default function RootLayout({
           <header className="flex gap-6 flex-wrap justify-end pt-6 pr-6 sticky top-0 bg-black pb-6">
             <Link href="/">Main Page</Link>
             <a href="/newsletter">News Letter</a>
-            <a href="/leaderboard">Leaderboards</a>
+            <a href="/skinsheet">Skin Sheet</a>
           </header>
           <div className="dark">{children}</div>
+          <Analytics />
         </div>
       </body>
     </html>

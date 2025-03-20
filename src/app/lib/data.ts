@@ -1,5 +1,5 @@
 import postgres from "postgres";
-import { SkinSheet } from "../leaderboard/columns";
+import { SkinSheet } from "../skinsheet/columns";
 
 const sql = postgres(process.env.DATABASE_URL!, { ssl: "verify-full" });
 

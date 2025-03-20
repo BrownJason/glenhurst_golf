@@ -3,8 +3,7 @@ import { SkinSheet, columns } from "./columns";
 import { fetchSkins, fetchSkinsByWeek, fetchWeeks } from "../lib/data";
 
 async function getData(): Promise<SkinSheet[]> {
-  const s = await fetchSkins();
-  return s;
+  return await fetchSkins();
 }
 
 export default async function Leaderboard(props: {

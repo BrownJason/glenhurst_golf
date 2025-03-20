@@ -1,20 +1,18 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 
-import { ColumnDef, flexRender, getCoreRowModel, RowData, ColumnFiltersState, getFilteredRowModel, useReactTable, Row } from "@tanstack/react-table";
+import { ColumnDef, flexRender, getCoreRowModel, ColumnFiltersState, getFilteredRowModel, useReactTable } from "@tanstack/react-table";
 
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { Input } from "@/components/ui/input";
 import clsx from "clsx";
-import WeekSelection from "@/app/leaderboard/weekselect/weekselection";
+import WeekSelection from "@/app/skinsheet/weekselect/weekselection";
 
 export interface SkinsDataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   weeks: any;
 }
 
