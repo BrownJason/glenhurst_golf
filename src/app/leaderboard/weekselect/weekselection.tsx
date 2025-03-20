@@ -21,9 +21,10 @@ export default function WeekSelection(props: { week: any[] }) {
 
   return (
     <div className="flex justify-end">
+      <div className="flex text-center items-center pr-4">Week of </div>
       <Select onValueChange={(e) => handleOnChange(e)}>
         <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="Week" defaultValue={searchParams.get("week")?.toString()} />
+          <SelectValue placeholder={searchParams.get("week")?.toString()} defaultValue={searchParams.get("week")?.toString()} />
         </SelectTrigger>
         <SelectContent>
           {data.map((weeks) => {

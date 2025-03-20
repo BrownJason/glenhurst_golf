@@ -8,13 +8,14 @@ async function getData(): Promise<SkinSheet[]> {
 }
 
 export default async function Leaderboard(props: {
-  searchParams?: Promise<{
-    selectedWeek?: string;
+  searchParams: Promise<{
+    week: string;
   }>;
 }) {
   const searchParams = await props.searchParams;
-  const selectedWeek = String(searchParams?.selectedWeek) || "03-22-2025";
-  const data = selectedWeek !== null || selectedWeek !== undefined ? await fetchSkinsByWeek(new Date(selectedWeek).toISOString().slice(0, 19).replace("T", " ")) : await getData();
+  const selectedWeek = String(searchParams?.week) || "03-22-2025";
+
+  const data = selectedWeek !== null || selectedWeek !== undefined ? await fetchSkinsByWeek(new Date(selectedWeek).toISOString()) : await getData();
 
   const distinctWeeks = await fetchWeeks();
 

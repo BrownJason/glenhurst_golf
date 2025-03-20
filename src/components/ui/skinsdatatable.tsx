@@ -36,11 +36,11 @@ export function SkinsDataTable<TData, TValue>({ columns, data, weeks }: SkinsDat
     <div className="flex flex-col m-4">
       <div className="flex justify-center text-center w-full">Skin Sheet</div>
       <div className="flex py-4 w-full">
-        <div className="flex justify-start py-4 md:w-128">
+        <div className="flex justify-start items-center py-4 md:w-128">
           Filter by name: &nbsp; <Input placeholder="Filter names..." value={(table.getColumn("name")?.getFilterValue() as string) ?? ""} onChange={(event) => table.getColumn("name")?.setFilterValue(event.target.value)} className="max-w-sm" />
         </div>
         <div className="justify-end py-4 flex-1">
-          Week of <WeekSelection week={weeks} />
+          <WeekSelection week={weeks} />
         </div>
       </div>
       <div className="rounded-md border">
