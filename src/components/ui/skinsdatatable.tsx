@@ -11,7 +11,6 @@ import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import clsx from "clsx";
 import WeekSelection from "@/app/leaderboard/weekselect/weekselection";
-import { RowList } from "postgres";
 
 export interface SkinsDataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];

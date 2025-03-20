@@ -14,7 +14,7 @@ export default async function Leaderboard(props: {
 }) {
   const searchParams = await props.searchParams;
   const selectedWeek = String(searchParams?.selectedWeek) || "03-22-2025";
-  const data = selectedWeek !== null || selectedWeek !== undefined ? await fetchSkinsByWeek(new Date(selectedWeek).toISOString()) : await getData();
+  const data = selectedWeek !== null || selectedWeek !== undefined ? await fetchSkinsByWeek(new Date(selectedWeek).toISOString().slice(0, 19).replace("T", " ")) : await getData();
 
   const distinctWeeks = await fetchWeeks();
 
