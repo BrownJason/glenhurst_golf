@@ -3,7 +3,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 
-import { ColumnDef, flexRender, getCoreRowModel, RowData, ColumnFiltersState, getFilteredRowModel, useReactTable } from "@tanstack/react-table";
+import { ColumnDef, flexRender, getCoreRowModel, RowData, ColumnFiltersState, getFilteredRowModel, useReactTable, Row } from "@tanstack/react-table";
 
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useEffect, useState } from "react";
@@ -11,11 +11,12 @@ import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import clsx from "clsx";
 import WeekSelection from "@/app/leaderboard/weekselect/weekselection";
+import { RowList } from "postgres";
 
 export interface SkinsDataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
-  weeks: [];
+  weeks: any;
 }
 
 export function SkinsDataTable<TData, TValue>({ columns, data, weeks }: SkinsDataTableProps<TData, TValue>) {
@@ -40,7 +41,7 @@ export function SkinsDataTable<TData, TValue>({ columns, data, weeks }: SkinsDat
           Filter by name: &nbsp; <Input placeholder="Filter names..." value={(table.getColumn("name")?.getFilterValue() as string) ?? ""} onChange={(event) => table.getColumn("name")?.setFilterValue(event.target.value)} className="max-w-sm" />
         </div>
         <div className="justify-end py-4 flex-1">
-          <WeekSelection week={weeks} />
+          Week of <WeekSelection week={weeks} />
         </div>
       </div>
       <div className="rounded-md border">
