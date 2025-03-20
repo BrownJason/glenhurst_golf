@@ -1,4 +1,15 @@
+import moment from "moment";
 import Image from "next/image";
+import Link from "next/link";
+
+function getNextSaturday() {
+  const today = moment();
+  const nextSaturday = today.day(6); // 6 represents Saturday
+  if (today.day() > 6) {
+    nextSaturday.add(1, "weeks");
+  }
+  return nextSaturday.format("MM-DD-YYYY");
+}
 
 export default function Home() {
   return (
@@ -9,12 +20,22 @@ export default function Home() {
             <Image src="/Golf-PNG-File.png" alt="Next.js logo" width={180} height={58} priority />
           </div>
           <div className="flex flex-col justify-center items-center bg-[#6c844c] text-[#f9e6bf] border-[#f9e6bf] border rounded-xl p-4">
-            <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)] text-[#f9e6bf]">
-              <li className="mb-2">
-                Get started by editing <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold ">src/app/page.tsx</code>.
-              </li>
-              <li>Save and see your changes instantly.</li>
-            </ol>
+            <p>
+              For weekly updates on your winnings and YTD earnings <br />
+              head on over to{" "}
+              <Link href="/" className="text-xl hover:text-[#9caca7]">
+                Daily/Weekly Scores
+              </Link>
+            </p>
+            <br />
+            <p>
+              Check out the{" "}
+              <Link href={"/skinsheet?week=" + getNextSaturday()} className="text-xl hover:text-[#9caca7]">
+                Skin Sheet
+              </Link>{" "}
+              for updates on Weekly Skins. <br />
+              See if you won before the next round of golf
+            </p>
           </div>
         </main>
       </div>

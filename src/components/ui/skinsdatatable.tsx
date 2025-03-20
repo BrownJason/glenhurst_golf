@@ -36,8 +36,11 @@ export function SkinsDataTable<TData, TValue>({ columns, data, weeks }: SkinsDat
         <div className="flex justify-center text-center items-center w-128 bg-[#6c844c] text-[#f9e6bf] border-[#f9e6bf] border rounded-xl py-2">Skin Sheet</div>
       </div>
       <div className="flex rounded-lg justify-center text-center py-4">
-        <div className="flex justify-center items-center w-128 bg-[#6c844c] text-[#f9e6bf] border-[#f9e6bf] border rounded-xl py-2">
-          Filter by name: &nbsp; <Input placeholder="Filter names..." value={(table.getColumn("name")?.getFilterValue() as string) ?? ""} onChange={(event) => table.getColumn("name")?.setFilterValue(event.target.value)} className="max-w-sm" />
+        <div className="flex justify-center items-center w-128 bg-[#6c844c] text-[#f9e6bf] border-[#f9e6bf] border rounded-xl pr-4 pl-">
+          <span className="flex flex-row justify-center items-center text-center w-full py-4">
+            <div>Filter by name:</div> &nbsp;
+            <Input placeholder="Filter names..." value={(table.getColumn("name")?.getFilterValue() as string) ?? ""} onChange={(event) => table.getColumn("name")?.setFilterValue(event.target.value)} className="w-48" />
+          </span>
         </div>
       </div>
       <div className="flex rounded-lg justify-center text-center py-4 border-[#f9e6bf]">
