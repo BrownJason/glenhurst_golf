@@ -1,7 +1,7 @@
 import postgres from "postgres";
 import { SkinSheet } from "../leaderboard/columns";
 
-const sql = postgres(process.env.DATABASE_URL, { ssl: "verify-full" });
+const sql = postgres(process.env.DATABASE_URL!, { ssl: "verify-full" });
 
 export async function fetchSkins() {
   try {
