@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { Analytics } from "@vercel/analytics/next";
+import Nav from "../components/ui/nav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,9 +29,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}>
         <div className="flex flex-col  min-h-dvh">
-          <header className="flex gap-6 flex-wrap justify-end pt-6 pr-6 fixed sticky top-0 bg-[#6c844c] text-[#f9e6bf] pb-6 z-1000">
-            <Link href="/">Main Page</Link>
-            <a href="/skinsheet">Skin Sheet</a>
+          <header className="flex gap-6 flex-wrap justify-end pt-6 pr-6 fixed sticky top-0 bg-[#6c844c] text-[#f9e6bf] pb-6 z-1000 scroll:h-8">
+            <Nav />
           </header>
           <div className="flex-grow dark my--10 bg-[url(/golf_bg.jpg)] bg-scroll bg-cover">{children}</div>
           <Analytics />
