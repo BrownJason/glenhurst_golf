@@ -53,7 +53,7 @@ export async function fecthYtdEarnings() {
     const data = await sql<YTDEarnings[]>`SELECT p.id,  p.player_name, '' AS "group", null gross_score, p.hdcp,
       null net_score, null plc, ytd.place, ytd.skin, ytd.green, null hole,
       SUM(ytd.place + ytd.skin + ytd.green) ytd_total,
-      SUM(ytd.place + ytd.skin + ytd.green) / ytd.check_in ytd_per_round
+      CEIL((ytd.place + ytd.skin + ytd.green) / ytd.check_in::FLOAT) ytd_per_round
     FROM ytd_earnings ytd, players p
       WHERE p.player_id = ytd.player_id
     group by p.id, p.player_name, p.hdcp, ytd.place, ytd.skin, ytd.green, ytd.check_in
