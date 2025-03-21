@@ -1,5 +1,6 @@
 import postgres from "postgres";
 import { SkinSheet } from "../skinsheet/columns";
+import { YTDEarnings } from "../earnings/columns";
 
 const sql = postgres(process.env.DATABASE_URL!, { ssl: "verify-full" });
 
@@ -43,5 +44,25 @@ export async function fetchWeeks() {
   } catch (error) {
     console.log("Database Error: ", error);
     throw new Error("Failed to fetch distinct weeks");
+  }
+}
+
+export async function fecthYtdEarnings() {
+  try {
+    console.log("Fetching ytd earnigns...");
+    const data = await sql<YTDEarnings[]>`SELECT p.id,  p.player_name, '' AS "group", null gross_score, p.hdcp,
+      null net_score, null plc, ytd.place, ytd.skin, ytd.green, null hole,
+      SUM(ytd.place + ytd.skin + ytd.green) ytd_total,
+      SUM(ytd.place + ytd.skin + ytd.green) / ytd.check_in ytd_per_round
+    FROM ytd_earnings ytd, players p
+      WHERE p.player_id = ytd.player_id
+    group by p.id, p.player_name, p.hdcp, ytd.place, ytd.skin, ytd.green, ytd.check_in
+    ORDER BY p.id`;
+    console.log("Data fetch competed...");
+
+    return data;
+  } catch (error) {
+    console.log("Database error: " + error);
+    throw new Error("Failed to fetch ytd earnings");
   }
 }
