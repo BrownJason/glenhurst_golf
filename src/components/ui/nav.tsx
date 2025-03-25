@@ -4,8 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Fragment } from "react";
 
-export default function Nav() {
+class NavProps {
+  date: string | undefined;
+}
+
+export default function Nav({ date }: NavProps) {
   const pathname = usePathname();
+
+  console.log(date);
 
   return (
     <Fragment>
@@ -15,7 +21,7 @@ export default function Nav() {
       <Link className={`link ${pathname === "/earnings" ? "active text-[#3c505c]" : ""}`} href="/earnings">
         Weekly/YTD Earnings
       </Link>
-      <Link className={`link ${pathname === "/skinsheet" ? "active text-[#3c505c]" : ""}`} href="/skinsheet">
+      <Link className={`link ${pathname.includes("skinsheet") ? "active text-[#3c505c]" : ""}`} href={"/skinsheet?week=" + date}>
         Skin Sheet
       </Link>
     </Fragment>

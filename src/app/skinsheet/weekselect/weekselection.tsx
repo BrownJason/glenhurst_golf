@@ -15,8 +15,13 @@ export default function WeekSelection(props: { week: any[] }) {
 
   function handleOnChange(term: string) {
     const params = new URLSearchParams(searchParams);
-    params.set("week", term);
-    replace(`${pathname}?${params.toString()}`);
+    const s = new Date(term);
+    if (!s) {
+      replace("/404");
+    } else {
+      params.set("week", term);
+      replace(`${pathname}?${params.toString()}`);
+    }
   }
 
   return (
