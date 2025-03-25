@@ -4,7 +4,7 @@ import "./globals.css";
 import Link from "next/link";
 import { Analytics } from "@vercel/analytics/next";
 import Nav from "../components/ui/nav";
-import { getNextSaturday } from "./page";
+import moment from "moment";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,4 +44,13 @@ export default function RootLayout({
       </body>
     </html>
   );
+}
+
+function getNextSaturday() {
+  const today = moment();
+  const nextSaturday = today.day(6); // 6 represents Saturday
+  if (today.day() > 6) {
+    nextSaturday.add(1, "weeks");
+  }
+  return nextSaturday.format("MM-DD-YYYY");
 }

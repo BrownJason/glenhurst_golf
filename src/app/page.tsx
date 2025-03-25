@@ -2,7 +2,7 @@ import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
 
-export function getNextSaturday() {
+function getNextSaturday() {
   const today = moment();
   const nextSaturday = today.day(6); // 6 represents Saturday
   if (today.day() > 6) {
